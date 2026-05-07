@@ -1,7 +1,7 @@
 ﻿using MedgrupoChallenge.Application.Interfaces;
 using MedgrupoChallenge.Application.DTOs;
 using MedgrupoChallenge.Domain.Entities;
-using MedgrupoChallenge.Infraesctructure.Repositories;
+using MedgrupoChallenge.Infrastructure.Repositories;
 
 namespace MedgrupoChallenge.Application.Services;
 
@@ -35,9 +35,9 @@ public class ContactService : IContactService
             .ToList();
     }
 
-    public async Task<ContactResponse?> GetByIdASync(Guid id)
+    public async Task<ContactResponse?> GetByIdAsync(Guid id)
     {
-        var contact = await _contactRepository.GetByIdAsync(id);
+        var contact = await _contactRepository.GetActiveByIdAsync(id);
 
         if (contact is null)
             return null;
@@ -47,7 +47,7 @@ public class ContactService : IContactService
 
     public async Task<ContactResponse?> UpdateAsync(Guid id, UpdateContactRequest request)
     {
-        var contact = await _contactRepository.GetByIdAsync(id);
+        var contact = await _contactRepository.GetActiveByIdAsync(id);
 
         if (contact is null)
             return null;
@@ -76,7 +76,7 @@ public class ContactService : IContactService
 
     public async Task<bool> DeleteAsync(Guid id)
     {
-        var contact = await _contactRepository.GetActiveByIdAsync(id);
+        var contact = await _contactRepository.GetByIdAsync(id);
 
         if (contact is null)
             return false;

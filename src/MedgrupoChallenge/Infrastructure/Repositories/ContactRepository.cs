@@ -1,8 +1,8 @@
 ﻿using MedgrupoChallenge.Domain.Entities;
-using MedgrupoChallenge.Infraesctructure.Data;
+using MedgrupoChallenge.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace MedgrupoChallenge.Infraesctructure.Repositories;
+namespace MedgrupoChallenge.Infrastructure.Repositories;
 
 public class ContactRepository : IContactRepository
 {

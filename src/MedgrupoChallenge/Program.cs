@@ -1,7 +1,7 @@
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
-using MedgrupoChallenge.Infraesctructure.Data;
-using MedgrupoChallenge.Infraesctructure.Repositories;
+using MedgrupoChallenge.Infrastructure.Data;
+using MedgrupoChallenge.Infrastructure.Repositories;
 using MedgrupoChallenge.Application.Interfaces;
 using MedgrupoChallenge.Application.Services;
 

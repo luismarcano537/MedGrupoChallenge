@@ -1,6 +1,6 @@
 ﻿using MedgrupoChallenge.Domain.Entities;
 
-namespace MedgrupoChallenge.Infraesctructure.Repositories;
+namespace MedgrupoChallenge.Infrastructure.Repositories;
 
 public interface IContactRepository
 {

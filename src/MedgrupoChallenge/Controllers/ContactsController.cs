@@ -48,7 +48,7 @@ public class ContactsController : ControllerBase
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetById(Guid id)
     {
-        var contact = await _contactService.GetByIdASync(id);
+        var contact = await _contactService.GetByIdAsync(id);
 
         if (contact is null)
             return NotFound(new

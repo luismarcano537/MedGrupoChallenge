@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MedgrupoChallenge.Domain.Entities;
 
-namespace MedgrupoChallenge.Infraesctructure.Data;
+namespace MedgrupoChallenge.Infrastructure.Data;
 
 public class AppDbContext : DbContext
 {
