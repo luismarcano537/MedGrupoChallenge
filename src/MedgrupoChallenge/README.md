@@ -1,1 +1,0 @@
-#Medgrupo Challenge
