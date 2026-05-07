@@ -1,4 +1,8 @@
 <Solution>
-  <Project Path="MedgrupoChallenge.csproj" />
-  <Project Path="MedgrupoChallenge.Tests/MedgrupoChallenge.Tests.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/MedgrupoChallenge/MedgrupoChallenge.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/MedgrupoChallenge.Tests/MedgrupoChallenge.Tests.csproj" />
+  </Folder>
 </Solution>

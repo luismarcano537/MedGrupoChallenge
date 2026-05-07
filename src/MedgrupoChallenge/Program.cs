@@ -5,7 +5,14 @@ using MedgrupoChallenge.Infraesctructure.Repositories;
 using MedgrupoChallenge.Application.Interfaces;
 using MedgrupoChallenge.Application.Services;
 
-Env.Load();
+var envPath = Path.Combine(AppContext.BaseDirectory, ".env");
+
+if (!File.Exists(envPath))
+{
+    envPath = Path.Combine(Directory.GetCurrentDirectory(), ".env");
+}
+
+Env.Load(Path.Combine(Directory.GetCurrentDirectory(), ".env"));
 
 var builder = WebApplication.CreateBuilder(args);
 

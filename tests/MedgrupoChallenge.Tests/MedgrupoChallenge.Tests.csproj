@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MedgrupoChallenge.csproj" />
+    <ProjectReference Include="..\..\src\MedgrupoChallenge\MedgrupoChallenge.csproj" />
   </ItemGroup>
 
 </Project>
