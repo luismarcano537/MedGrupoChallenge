@@ -10,13 +10,13 @@ public class Contact
     public Gender Gender { get; private set; }
     public bool IsActive { get; private set; }
     public DateTime CreatedAt { get; private set; }
-    public DateTime? UpdateAt { get; private set; }
+    public DateTime? UpdatedAt { get; private set; } 
 
     public int Age
     {
         get
         {
-            var today = DateTime.Now;
+            var today = DateTime.Today;
             var age = today.Year - BirthDate.Year;
 
             if (BirthDate.Date > today.AddYears(-age))
@@ -33,10 +33,13 @@ public class Contact
     public Contact(string name, DateTime birthDate, Gender gender)
     {
         Validate(name, birthDate, gender);
+        Id = Guid.NewGuid();
         Name = name.Trim();
         BirthDate = birthDate.Date;
         Gender = gender;
-        UpdateAt = DateTime.UtcNow;
+        IsActive = true;
+        CreatedAt = DateTime.UtcNow;
+        UpdatedAt = null;
     }
 
     public void Update(string name, DateTime birthDate, Gender gender)
@@ -45,7 +48,7 @@ public class Contact
         Name = name.Trim();
         BirthDate = birthDate.Date;
         Gender = gender;
-        UpdateAt = DateTime.UtcNow;
+        UpdatedAt = DateTime.UtcNow;
     }
 
     public void Deactivate()
@@ -54,7 +57,7 @@ public class Contact
             throw new InvalidOperationException("Contact is already inactive.");
 
         IsActive = false;
-        UpdateAt = DateTime.UtcNow;
+        UpdatedAt = DateTime.UtcNow;
     }
     
     private static void Validate(string name, DateTime birthDate, Gender gender)

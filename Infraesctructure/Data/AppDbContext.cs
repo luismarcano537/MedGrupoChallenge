@@ -40,7 +40,7 @@ public class AppDbContext : DbContext
             entity.Property(contact => contact.CreatedAt)
                 .IsRequired();
 
-            entity.Property(contact => contact.UpdateAt)
+            entity.Property(contact => contact.UpdatedAt)
                 .IsRequired(false);
 
             entity.Ignore(contact => contact.Age);
