@@ -2,7 +2,6 @@
 using MedgrupoChallenge.Application.DTOs;
 using MedgrupoChallenge.Domain.Entities;
 using MedgrupoChallenge.Infraesctructure.Repositories;
-using MedgrupoChallenge.Application.Interfaces;
 
 namespace MedgrupoChallenge.Application.Services;
 
