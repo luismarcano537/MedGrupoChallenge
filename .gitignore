@@ -4,3 +4,6 @@ obj/
 *.user
 *.suo
 .vs/
+.env
+*.env
+appsettings.Development.json
