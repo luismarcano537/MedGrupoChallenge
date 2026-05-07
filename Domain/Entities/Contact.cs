@@ -8,7 +8,7 @@ public class Contact
     public string Name { get; private set; } = string.Empty;
     public DateTime BirthDate { get; private set; }
     public Gender Gender { get; private set; }
-    public bool IsAtive { get; private set; }
+    public bool IsActive { get; private set; }
     public DateTime CreatedAt { get; private set; }
     public DateTime? UpdateAt { get; private set; }
 
@@ -50,10 +50,10 @@ public class Contact
 
     public void Deactivate()
     {
-        if(!IsAtive)
+        if(!IsActive)
             throw new InvalidOperationException("Contact is already inactive.");
 
-        IsAtive = false;
+        IsActive = false;
         UpdateAt = DateTime.UtcNow;
     }
     

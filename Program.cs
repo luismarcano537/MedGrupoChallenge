@@ -1,6 +1,9 @@
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using MedgrupoChallenge.Infraesctructure.Data;
+using MedgrupoChallenge.Infraesctructure.Repositories;
+using MedgrupoChallenge.Application.Interfaces;
+using MedgrupoChallenge.Application.Services;
 
 Env.Load();
 
@@ -33,6 +36,9 @@ var connectionString =
 // Add services to the container.
 
 builder.Services.AddDbContext<AppDbContext>(options => { options.UseSqlServer(connectionString); });
+
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
+builder.Services.AddScoped<IContactService, ContactService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

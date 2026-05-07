@@ -34,7 +34,7 @@ public class AppDbContext : DbContext
                 .IsRequired()
                 .HasConversion<int>();
 
-            entity.Property(contact => contact.IsAtive)
+            entity.Property(contact => contact.IsActive)
                 .IsRequired();
 
             entity.Property(contact => contact.CreatedAt)
