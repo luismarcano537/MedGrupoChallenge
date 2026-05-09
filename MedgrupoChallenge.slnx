@@ -1,6 +1,9 @@
 <Solution>
   <Folder Name="/src/">
-    <Project Path="src/MedgrupoChallenge/MedgrupoChallenge.csproj" />
+    <Project Path="src/MedgrupoChallenge.Api/MedgrupoChallenge.Api.csproj" />
+    <Project Path="src/MedgrupoChallenge.Application/MedgrupoChallenge.Application.csproj" />
+    <Project Path="src/MedgrupoChallenge.Domain/MedgrupoChallenge.Domain.csproj" />
+    <Project Path="src/MedgrupoChallenge.Infrastructure/MedgrupoChallenge.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/MedgrupoChallenge.Tests/MedgrupoChallenge.Tests.csproj" />

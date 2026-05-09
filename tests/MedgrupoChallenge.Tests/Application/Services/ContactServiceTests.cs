@@ -3,7 +3,7 @@ using MedgrupoChallenge.Application.DTOs;
 using MedgrupoChallenge.Application.Services;
 using MedgrupoChallenge.Domain.Entities;
 using MedgrupoChallenge.Domain.Enums;
-using MedgrupoChallenge.Infrastructure.Repositories;
+using MedgrupoChallenge.Application.Interfaces;
 using Moq;
 
 namespace MedgrupoChallenge.Tests.Application.Services;

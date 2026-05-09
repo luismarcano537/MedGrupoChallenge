@@ -27,7 +27,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\MedgrupoChallenge\MedgrupoChallenge.csproj" />
+    <ProjectReference Include="..\..\src\MedgrupoChallenge.Domain\MedgrupoChallenge.Domain.csproj" />
+    <ProjectReference Include="..\..\src\MedgrupoChallenge.Application\MedgrupoChallenge.Application.csproj" />
+    <ProjectReference Include="..\..\src\MedgrupoChallenge.Infrastructure\MedgrupoChallenge.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
