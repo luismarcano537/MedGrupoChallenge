@@ -1,7 +1,7 @@
-﻿using MedgrupoChallenge.Domain.Entities;
+﻿using MedgrupoChallenge.Application.Interfaces;
+using MedgrupoChallenge.Domain.Entities;
 using MedgrupoChallenge.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using MedgrupoChallenge.Application.Interfaces;
 
 namespace MedgrupoChallenge.Infrastructure.Repositories;
 
@@ -14,14 +14,6 @@ public class ContactRepository : IContactRepository
         _context = context;
     }
 
-    public async Task<Contact> AddAsync(Contact contact)
-    {
-        await _context.Contacts.AddAsync(contact);
-        await _context.SaveChangesAsync();
-
-        return contact;
-    }
-
     public async Task<IEnumerable<Contact>> GetAllActiveAsync()
     {
         return await _context.Contacts
@@ -30,16 +22,24 @@ public class ContactRepository : IContactRepository
             .ToListAsync();
     }
 
+    public async Task<Contact?> GetByIdAsync(Guid id)
+    {
+        return await _context.Contacts
+            .FirstOrDefaultAsync(contact => contact.Id == id);
+    }
+
     public async Task<Contact?> GetActiveByIdAsync(Guid id)
     {
         return await _context.Contacts
             .FirstOrDefaultAsync(contact => contact.Id == id && contact.IsActive);
     }
 
-    public async Task<Contact?> GetByIdAsync(Guid id)
+    public async Task<Contact> AddAsync(Contact contact)
     {
-        return await _context.Contacts.FirstOrDefaultAsync(contact => contact.Id == id);
-        
+        await _context.Contacts.AddAsync(contact);
+        await _context.SaveChangesAsync();
+
+        return contact;
     }
 
     public async Task UpdateAsync(Contact contact)
