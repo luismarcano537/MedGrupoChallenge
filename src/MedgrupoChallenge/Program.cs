@@ -1,48 +1,17 @@
-using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using MedgrupoChallenge.Infrastructure.Data;
 using MedgrupoChallenge.Infrastructure.Repositories;
 using MedgrupoChallenge.Application.Interfaces;
 using MedgrupoChallenge.Application.Services;
 
-var envPath = Path.Combine(AppContext.BaseDirectory, ".env");
-
-if (!File.Exists(envPath))
-{
-    envPath = Path.Combine(Directory.GetCurrentDirectory(), ".env");
-}
-
-Env.Load(Path.Combine(Directory.GetCurrentDirectory(), ".env"));
-
 var builder = WebApplication.CreateBuilder(args);
 
-var dbServer = GetRequiredEnvironmentVariable("DB_SERVER");
-var dbPort = GetRequiredEnvironmentVariable("DB_PORT");
-var dbName = GetRequiredEnvironmentVariable("DB_NAME");
-var dbUser = GetRequiredEnvironmentVariable("DB_USER");
-var dbPassword = GetRequiredEnvironmentVariable("DB_PASSWORD");
-var dbTrustCertificate = Environment.GetEnvironmentVariable("DB_TRUST_CERTIFICATE") ?? "True";
-
-static string GetRequiredEnvironmentVariable(string name)
-{
-    var value = Environment.GetEnvironmentVariable(name);
-
-    if (string.IsNullOrWhiteSpace(value))
-        throw new InvalidOperationException($"Environment variable '{name}' was not configured.");
-
-    return value;
-}
-
-var connectionString =
-    $"Server={dbServer},{dbPort};" +
-    $"Database={dbName};" +
-    $"User Id={dbUser};" +
-    $"Password={dbPassword};" +
-    $"TrustServerCertificate={dbTrustCertificate};";
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Add services to the container.
 
-builder.Services.AddDbContext<AppDbContext>(options => { options.UseSqlServer(connectionString); });
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IContactRepository, ContactRepository>();
 builder.Services.AddScoped<IContactService, ContactService>();
